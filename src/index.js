@@ -9,7 +9,7 @@ app.use(express.json());
 app.set("view engine", "ejs"); // root directory for views views/
 app.use(express.static("public"));
 
-// food-items api
+// foodItems api 
 app.use("/foodItems",require("./controllers/foodItems.controller"))
 
 
