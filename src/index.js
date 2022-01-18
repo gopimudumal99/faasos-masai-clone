@@ -1,0 +1,17 @@
+const express = require("express");
+const app = express();
+
+app.use(express.urlencoded({ extended: true }));
+
+app.use(express.json());
+
+
+app.set("view engine", "ejs"); // root directory for views views/
+app.use(express.static("public"));
+
+// food-items api
+app.use("/foodItems",require("./controllers/foodItems.controller"))
+
+
+
+module.exports = app;
