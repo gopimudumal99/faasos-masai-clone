@@ -1,5 +1,5 @@
-
 var arr = []
+
 let showData = (data, start, location) => {
   let obj = data.items;
   obj.forEach((el) => {
@@ -62,7 +62,7 @@ let showData = (data, start, location) => {
       add_div.setAttribute("id", "add_div01");
       let addbtn = document.createElement("button");
       addbtn.setAttribute("id", "addbtn01");
-      addbtn.setAttribute("class", "addbtn01");
+     addbtn.setAttribute("class", "addbtn01");
       addbtn.addEventListener("click", () => {
         arr.push(el);
         localStorage.setItem("cartItems", JSON.stringify(arr));
@@ -96,7 +96,7 @@ let showData = (data, start, location) => {
 
 
 let cartFunction = ()=>{ 
-  
+
 // custom btn
 let btn05 = document.getElementById("addbtn01")
 //    let count = 1
@@ -119,6 +119,7 @@ btn05.addEventListener("click", function () {
 // cart Items
 let cartnumber = document.getElementById("style")
 let cartname = document.getElementById("style1")
+    
 let data
 let rupes
 let total
@@ -258,7 +259,7 @@ function showcart() {
                 pricediv.innerHTML = `₹ ${price * count}`
             } else {
                 count1--
-                console.log(count1)
+                console.log(arr)
                 cartnumber.innerHTML = `Cart <span id="cartstyle"> ${count1} items</span>`
                 if (count1 == 0) {
                     cartshadow.style.display = "none"
@@ -309,12 +310,16 @@ function showcart() {
 
 
 function removebtn(m, i) {
-
     data = data.filter(function (elem, ind) {
         return i !== ind
     })
-
     let data1 = data
+    console.log("data1:", data)
+    arr = data1
+    if (arr.length == 0) { 
+    console.log("true")
+    cartname.style.display = "block";
+    }
     localStorage.setItem("cartItems", JSON.stringify(data1))
     totalData(data1)
     showcart(data1)
