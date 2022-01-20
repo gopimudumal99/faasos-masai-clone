@@ -1,8 +1,16 @@
 const express = require("express")
 const app = express();
+const cors = require("cors");
+
+
+const corsOptions = {
+  origin: ["*", "https://faasos-masai-clone.herokuapp.com", "http://localhost:3000"],
+  optionsSuccessStatus: 200, // For legacy browser support
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
-
 app.use(express.urlencoded({ extended: true }));
 
 

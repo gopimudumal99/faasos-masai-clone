@@ -8,14 +8,5 @@ router.get("", async (req, res) => {
 });
 
 
-router.get("/:id", async (req, res) => {
-  try {
-    const product = await Product.find({ _id: req.params.id }).lean().exec();
-    res.send({ item: product });
-  } catch (err) {
-    res.send(err);
-  }
-});
-
 
 module.exports = router;

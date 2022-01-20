@@ -1,4 +1,4 @@
-import showData from "./refactor.food.js"
+import { showData, cartFunction } from "./refactor.food.js";
 
 let box1 = document.getElementById("box1")
 let box2 = document.getElementById("box2")
@@ -8,31 +8,31 @@ let box8 = document.getElementById("box8")
 let box9 = document.getElementById("box9")
 let box11 = document.getElementById("box11")
 let box12 = document.getElementById("box12")
+let box13 = document.getElementById("box13");
 
+let location = [box1, box2, box4, box7, box8, box9, box11, box12, box13]
 
-let location = [box1, box2, box4, box7, box8, box9, box11, box12]
 let start = [
   "Fab Wraps starting at 99 each",
   "Faasos Chefs Specials",
   "Daily Value Wrap Combos (Save Upto 40% Extra",
-  "Signature Wraps - Veg",
+  "Signature Wraps",
   "Meal Combos (Upto 25% Savings)",
-  "Rice bowls",
+  "Rice Bowls",
   "Sides And Beverages",
   "Desserts",
+  "Classic Wraps",
 ];
-
-
 
 const foodAPI = async () => {
   try {
     let url = `https://faasos-masai-clone.herokuapp.com/foodItems`;
     let res = await fetch(url);
     let data = await res.json();
-    console.log(data);
+    // console.log(data);
       for (var i = 0; i < start.length; i++) {
-        console.log(start[i]);
         showData(data,start[i], location[i])
+        cartFunction()
       }
   } catch (err) {
     console.log("err:", err);
@@ -41,11 +41,10 @@ const foodAPI = async () => {
 foodAPI();
 
 
-
-// function showData(data,start,location) { 
+// function showData(data,start,location) {
 //     let obj = data.items
-//     obj.forEach((el) => { 
-//         if (el.category.startsWith(start)) { 
+//     obj.forEach((el) => {
+//         if (el.category.startsWith(start)) {
 //             // console.log(el)
 //             // ****************start**********
 //                 let { desc, img, name, price, rate, s_desc, bought, cat } = el;
@@ -136,4 +135,6 @@ foodAPI();
 //         }
 //     })
 // }
+
+
 
