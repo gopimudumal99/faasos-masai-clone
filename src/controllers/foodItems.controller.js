@@ -5,7 +5,14 @@ const Product = require("../models/product.model")
 //localhost:3000/foodItems
 router.get("", async (req, res) => {
   try {
-    const products = await Product.find().lean().exec();
+    let queries = req.query;
+    let filterObj = {};
+    for (let query in queries) {
+      if (query == "cat") {
+        filterObj[query] = queries[query];
+      }
+    }
+    const products = await Product.find(filterObj).lean().exec();
     res.send({ items: products });
   } catch (err) {
     res.send(err);
