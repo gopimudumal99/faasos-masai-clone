@@ -24,21 +24,42 @@ let start = [
   "Classic Wraps",
 ];
 
-const foodAPI = async () => {
+
+
+
+
+
+let url = `https://faasos-masai-clone.herokuapp.com/foodItems`;
+
+foodAPI(url);
+
+async function foodAPI(url) {
   try {
-    let url = `https://faasos-masai-clone.herokuapp.com/foodItems`;
     let res = await fetch(url);
     let data = await res.json();
     // console.log(data);
-      for (var i = 0; i < start.length; i++) {
-        showData(data,start[i], location[i])
-        cartFunction()
-      }
+    for (var i = 0; i < start.length; i++) {
+      showData(data, start[i], location[i]);
+    }
+    cartFunction();
   } catch (err) {
     console.log("err:", err);
   }
 };
-foodAPI();
+
+
+var a = document.getElementById("radio11");
+a.addEventListener("click", checkme);
+// var b = document.getElementById("radio12");
+// b.addEventListener("click", checkme1);
+
+function checkme() {
+  if (a.checked) {
+    console.log("here")
+  } else { 
+  }
+ }
+
 
 
 // function showData(data,start,location) {

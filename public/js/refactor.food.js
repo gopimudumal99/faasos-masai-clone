@@ -8,7 +8,10 @@ let showData = (data, start, location) => {
       // ****************start**********
       let { desc, img, name, price, rate, s_desc, bought, cat } = el;
       let div = document.createElement("div");
-      div.setAttribute("id", "main_div");
+        div.setAttribute("id", "main_div");
+        // div.addEventListener("click", () => { 
+        //     console.log(el)
+        // })
       let imgdiv = document.createElement("div");
       imgdiv.setAttribute("id", "imgdiv01");
       let img1 = document.createElement("img");
@@ -76,16 +79,20 @@ let showData = (data, start, location) => {
       pricediv.append(priceimg, price1);
       namediv.append(name1, pricediv);
 
-      p_div.append(p, br, p1);
+       p_div.append(p, br, p1);
 
-      rate_div.append(buttonrate, pbought);
-      add_div.append(addbtn, costa);
+        rate_div.append(buttonrate, pbought);
+        
+        add_div.append(addbtn, costa);
+        
       buttom.append(rate_div, add_div);
 
       div.append(imgdiv, namediv, p_div, buttom);
-      imgdiv.addEventListener("click", () => {
-        newPage(el);
-      });
+       namediv,imgdiv.addEventListener("click", () => {
+          console.log(el);
+          window.location.href = `/collections/${el._id}`;
+          // newPage(el);
+        });
 
       location.append(div);
 
@@ -118,7 +125,7 @@ btn05.addEventListener("click", function () {
 
 // cart Items
 let cartnumber = document.getElementById("style")
-let cartname = document.getElementById("style1")
+let cartname = document.getElementsByClassName("style1")
     
 let data
 let rupes
@@ -139,39 +146,43 @@ var count1 = 0
 function showcart() {
 
     // checkout functianality
-    cartname.innerHTML = ""
-    cartname.style.display = "none"
-    // cartshadow.style.position="fixed"
-    // cartshadow.style.top="3px"
-    cartshadow.style.display = "block"
-    cartshadow.style.width = "98%"
-    cartshadow.style.margin = "auto"
-    cartshadow.style.padding = "10px"
-    cartshadow.style.boxShadow = "rgba(0, 0, 0, 0.35) 0px 5px 15px"
-    cartshadow.style.borderRadius = "10px"
-
-    checkbtndisplay.style.display = "block"
-    checkbtndisplay.style.width = "100%"
-    checkbtndisplay.style.margin = "auto"
-    checkbtndisplay.style.backgroundColor = "#ffd344"
-    checkbtndisplay.style.fontSize = "20px"
-    checkbtndisplay.style.fontWeight = "700"
-    checkbtndisplay.style.padding = "12px"
-    checkbtndisplay.style.border = "none"
-    checkbtndisplay.style.borderRadius = "5px"
-    checkbtndisplay.style.marginTop = "10px"
-    checkbtndisplay.style.cursor = "pointer"
-
+    
     // checkbtndisplay.style.position="fixed"
-
+    
     // cartname.style.position = "fixed"
     // cartnumber.style.position = "fixed"
-
-
+    
+    
     data = JSON.parse(localStorage.getItem("cartItems"))
-    console.log(data.length)
+    if (data != undefined && data.length != 0) {
 
-
+        cartname.innerHTML = ""
+        cartname[0].style.display = "none"
+        // cartshadow.style.position="fixed"
+        // cartshadow.style.top="3px"
+        cartshadow.style.display = "block"
+        cartshadow.style.width = "98%"
+        cartshadow.style.margin = "auto"
+        cartshadow.style.padding = "10px"
+        cartshadow.style.boxShadow = "rgba(0, 0, 0, 0.35) 0px 5px 15px"
+        cartshadow.style.borderRadius = "10px"
+    
+        checkbtndisplay.style.display = "block"
+        checkbtndisplay.style.width = "100%"
+        checkbtndisplay.style.margin = "auto"
+        checkbtndisplay.style.backgroundColor = "#ffd344"
+        checkbtndisplay.style.fontSize = "20px"
+        checkbtndisplay.style.fontWeight = "700"
+        checkbtndisplay.style.padding = "12px"
+        checkbtndisplay.style.border = "none"
+        checkbtndisplay.style.borderRadius = "5px"
+        checkbtndisplay.style.marginTop = "10px"
+        checkbtndisplay.style.cursor = "pointer"
+    } else { 
+        for (let i = 0; i < cartname.length; i++) { 
+            cartname[i].style.display = "block";
+        }
+    }
     count1++
 
     if (data.length == 0) {
@@ -209,7 +220,7 @@ function showcart() {
 
         let div = document.createElement("div")
         div.setAttribute("id", "cartdiv")
-
+        div.setAttribute("class", "cartdiv")
         let food = document.createElement("div")
         food.setAttribute("id", "food")
         let imgdiv = document.createElement("div")
@@ -245,7 +256,8 @@ function showcart() {
         buttonsdiv.setAttribute("id", "buttonsdiv")
 
         let input01 = document.createElement("input")
-        input01.setAttribute("id", "input01")
+        input01.setAttribute("class", "input01")
+        input01.setAttribute("id", "input01");
         input01.value = 1;
 
         let minus = document.createElement("button")
@@ -317,8 +329,10 @@ function removebtn(m, i) {
     console.log("data1:", data)
     arr = data1
     if (arr.length == 0) { 
-    console.log("true")
-    cartname.style.display = "block";
+        console.log("true")
+        for (let i = 0; i < cartname.length; i++) { 
+            cartname[i].style.display = "block";
+        }
     }
     localStorage.setItem("cartItems", JSON.stringify(data1))
     totalData(data1)

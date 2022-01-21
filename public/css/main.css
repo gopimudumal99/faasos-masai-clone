@@ -282,9 +282,11 @@ h3{
 }
 #style1{
     font-size:25px;
+    display: block;
 }
 .style1{
     font-size: 25px;
+    display: block;
 }
 #dom01{ 
     background-color: white;
