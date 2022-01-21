@@ -1,0 +1,179 @@
+:root {
+    --yellow: rgb(255, 211, 68);
+    --primaryColorLight: #6a55cc;
+    --primaryColorRegular: #57409a;
+    --primaryColorDark: #190b46;
+    --blackText: #333333;
+    font-size: 62.5%;
+  }
+  body {
+    font-family: "Mulish", sans-serif;
+    background-color: var(--bodyBack);
+    margin: 0px;
+    width: 100%;
+  }
+  .clear {
+    clear: both;
+  }
+  .floatL {
+    float: left;
+  }
+  .floatR {
+    float: right;
+  }
+  
+  #left {
+    background-image: url("https://assets.faasos.io/faasos_v2/brandPattern.png");
+    height: 400px;
+    width: 43%;
+    float: left;
+    padding: 5% 5% 5% 8%;
+  }
+  #main {
+    display: flex;
+    justify-content: space-between;
+  }
+  #main button {
+    cursor: pointer;
+    font-family: "Mulish", sans-serif;
+    background: transparent;
+    color: rgb(255, 211, 68);
+    font-weight: 900;
+    border: 1px solid rgb(255, 211, 68);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+  #login {
+    border: 1px solid transparent !important;
+  }
+  #right {
+    float: right;
+    width: 44%;
+    height: 580px;
+  }
+  .h1 {
+    max-width: 59rem;
+    color: white;
+    font-weight: 900;
+    margin: 50px 0px 50px;
+    display: block;
+    font-size: calc(28px + 11 * ((100vw - 300px) / 1100));
+  }
+  #location {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 280px;
+    left: 110px;
+    cursor: pointer;
+  }
+  #location p {
+    font-size: 15px;
+    color: #333333;
+  }
+  #location input {
+    width: 550px;
+    height: 59px;
+    margin-top: 15px;
+    background: white;
+    padding: 0px;
+    border-radius: 5px 0px 0px 5px;
+    border: none;
+    font-size: 15px;
+    font-weight: 400;
+    padding-left: 20px;
+    cursor: text;
+    box-shadow: none;
+    outline: none;
+  }
+  
+  .center1 {
+    height: 450px;
+    text-align: center;
+    padding-top: 100px;
+  }
+  #center11 {
+    width: 70%;
+    margin: auto;
+    margin-top: 50px;
+    height: 350px;
+  }
+  #center12 {
+    display: grid;
+    grid-template-columns: 15% 75%;
+    grid-template-rows: 54px 54px 54px;
+    gap: 20px 0px;
+  }
+  .center1 p {
+    font-size: 15px;
+    color: #333333;
+  }
+  
+  #center2 {
+    background-color: #57409a;
+    height: 220px;
+    padding-top: 70px;
+    text-align: center;
+  }
+  #center21 {
+    width: 85%;
+    margin-left: 95px;
+    background-color: #6a55cc;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 15% 13% 17% 15% 15% 15%;
+    padding: 10px 0%;
+    justify-content: center;
+    position: absolute;
+    top: 1080px;
+  }
+  #center21 img {
+    max-width: 200px;
+    height: 45px;
+  }
+  #center21 > div {
+    border-right: 1px solid rgb(255, 255, 255, 0.3);
+  }
+  #center21 span {
+    color: #6a55cc;
+    height: 12px;
+    width: 12px;
+    background-color: white;
+    border-radius: 3px;
+    font-size: 10px;
+    padding: 0px 3px;
+  }
+  #center21 p {
+    color: white;
+    font-size: 13px;
+    font-weight: 900;
+    padding: 0px 20px;
+  }
+  #center21 > button {
+    width: auto;
+    height: 35px;
+    background-color: white;
+    color: #564099;
+    font-weight: 700;
+    cursor: pointer !important;
+    border: 1px solid transparent;
+    margin-top: 18px;
+    margin-left: 20px;
+  }
+  #center22 {
+    display: grid;
+    grid-template-columns: 17% 17% 17% 17% 17%;
+    padding: 0% 5%;
+    grid-gap: 3%;
+  }
+  #center22 p {
+    font-size: 13px;
+    color: white;
+    font-weight: 600;
+  }
+  #center22 img {
+    height: 80px;
+    width: 50px;
+  }
