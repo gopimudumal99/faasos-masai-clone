@@ -1,3 +1,9 @@
+
+
+    /* #cartbox{
+        position: fixed;
+        top:0
+    } */
     body {
         margin: 0;
         padding: 0;
@@ -5,7 +11,7 @@
     }
     
 
-    #box1,#box2,#box3,#box4,#box5, #box6,#box7,#box8,#box9,#box10,#box11,#box12,#box13{
+    #box1,#box2,#box3,#box4,#box5, #box6,#box7,#box8,#box9,#box10,#box11,#box12{
         display: grid;
         margin-left:30px ;
         grid-template-columns: auto  auto;
@@ -15,9 +21,6 @@
         column-gap: 20px;
         /* border: 1px solid red; */
 
-    }
-    html{
-        scroll-behavior: smooth;
     }
 
     #main_div {
@@ -546,8 +549,7 @@ label {
     font-size: 17px;
     font-weight: 400;
     margin-top: 10px;
-    margin-bottom:0 ;
-    padding: 5px;
+    padding: 12px;
     /* line-height:30px; */
     cursor: pointer;
     background-color: white;

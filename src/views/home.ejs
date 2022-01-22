@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Order Food Online from Faasos | Zero Contact Delivery</title>
+        <link rel="i-con" href="https://assets.faasos.io/order.faasos.io/production/app/public/images/faviconFaasos.png" >
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet" />
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/styles/home.css">        
+        <script type="module" src="/scripts/home.js"></script>
+
+        <!-- footer -->
+        <link rel="stylesheet" href="/styles/footeer.css">
+        <script type="module" src="/scripts/footer.js"></script>
+       
+
+        <!-- login and signup -->
+        <script src="https://kit.fontawesome.com/5e8eec8caf.js" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/styles/login&signup.css" />
+    </head>
+    <body>
+        
+        <div id="popUp"></div>
+        <div style="display: none;">
+            <div id="openPopUp">
+                <div id="popUpContainer">
+                    <div id="popUpModal">
+                        <img src="./images/leftArrow.svg" alt="" id="backButton" />
+                        <h3>Login</h3>
+                        <p>Enter your phone number to continue</p>
+                        <img src="./images/loginLogo.svg" alt="" id="loginLogo" />
+                    </div>
+                    <form>
+                        <input type="text" id="countryCode" placeholder="+91" />
+                        <input type="text" pattern="[0-9]{10}" maxlength="10" id="phoneNumber" placeholder="Phone Number" />
+                    </form>
+                    <p id="alertNumber">Phone should contain minimum 10 digits</p>
+                    <button id="continueButton">Continue</button>
+            
+                    <div class="loginSignupSwitch">
+                        Don’t have an account? <span onclick="popUpSignup()" style="cursor: pointer;" id="openSignUp">Sign Up</span>
+                    </div>
+                </div>
+            </div>
+            <div id="signUpPopUp">
+                <div id="signContainer">
+                    <div id="signUpModal">
+                        <img src="./images/leftArrow.svg" alt="" id="backButtonSign" />
+                        <h3>Login</h3>
+                        <p>Enter your phone number to continue</p>
+                        <img src="./images/loginLogo.svg" alt="" id="loginLogoSign" />
+                    </div>
+                    <div>
+                        <input type="text" id="countryCode" placeholder="+91" />
+                        <input type="text" pattern="[0-9]{10}" maxlength="10" id="phoneNumberSign" placeholder="Phone Number" />
+                        <p id="aNumber">Phone should contain minimum 10 digits</p>
+                        <input style="display: block; width: 100%;" type="text" id="userName" placeholder="Name" /><br/>
+                        <input style="display: block;" type="text" id="email" placeholder="Email Address" />
+                    </div>
+                    <button id="continueButtonSign">CREATE ACCOUNT</button>
+                    <p style="margin-left: 13px;">By creating an account, I accept the <span>Terms & Conditions</span></p>
+            
+                    <div class="loginSignupSwitch">
+                        Already have an account? <span style="cursor: pointer;" id="openLoginUp">Log in</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="parent" >
+            <div class="head">
+                <div id="left">
+                    <div id="main">
+                        <img style="height: 72px;" src="https://assets.faasos.io/faasos_v2/faasosLogoBrand.svg">
+                        <div>
+                            <button id="login">Login</button>
+                            <button id="signUp">Sign Up</button>
+                        </div>
+                    </div>
+                    <h1 class="clear h1">Surprises under wraps</h1>
+                </div>
+                <div id="right">
+                    <img style="width: 100%; height: 580px; border-radius: 0% 0% 0% 5%;" src="https://assets.faasos.io/faasos_v2/faasos-hero-banner.jpg">
+                </div>
+                <div id="location">
+                    <input type="text" placeholder="Enter your delivery location">
+                    <p style="background: white; padding: 20px;"><img style="margin-right: 5px;" class="floatL" src="./images/location.svg"> Locate Me</p>
+                    <p onclick="window.location.href='collection.html'"
+                        style="background: rgb(255, 211, 68); padding: 20px; border-radius: 0px 5px 5px 0px; font-weight: 900;">
+                        FIND FOOD</p>
+                </div>
+            </div>
+            <div class="center1 clear">
+                <h1 style="line-height: 10px; font-size: 35px;">Eat Good, Eat Safe. Always! Now with the EatSure promise.</h1>
+                <p>To keep your food safe and hypienic, here are some proactive steps that we have been taking.</p>
+                <div id="center11">
+                    <div class="floatL" style="text-align: left; width: 55%;">
+                        <div id="center12">
+                            <img src="./images/logo1.svg">
+                            <p style="margin-top: 5px;"><span>Real-time Temperature </span>Tracking of the kitchen and delivery staffs</p>
+                            
+                            <img src="./images/logo2.svg">
+                            <p><span>Contacless Delivery</span></p>
+                            
+                            <img src="./images/logo3.svg">
+                            <p><span>Regular health </span>check-ups for all the staff members</p>
+                        </div>
+                    </div>
+                    <div class="floatR" style="width: 45%;">
+                        <iframe style="border-radius: 5px;" width="100%" height="220" src="https://www.youtube.com/embed/SBGKA87fmCM" title="YouTube video player"
+                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <div id="center2">
+                <div id="center21">
+                    <div >
+                        <img style="margin-top: 10px;" src="https://assets.faasos.io/faasos_v2/esSafetyLogo.svg">
+                    </div>
+                    <div>
+                        <span>✔</span>
+                        <p>Medical Certified Staff</p>
+                    </div>
+                    <div>
+                        <span>✔</span>
+                        <p>200+ Stringent Quality Checks</p>
+                    </div>
+                    <div>
+                        <span>✔</span>
+                        <p>No Artifical Colours or Flavours</p>
+                    </div>
+                    <div style="border-right: 0px solid rgb(255, 255, 255, 0.3);;">
+                        <span>✔</span>
+                        <p>Double Sealed Packaging</p>
+                    </div>
+                    <button>KONW MORE</button>
+                </div>
+                <p style="color: var(--yellow); font-size: 15px; font-weight: 600;">Here are some additional measures which our kitchen teams are rigorously following!</p>
+                <div id="center22">
+                    <div>
+                        <img src="https://assets.faasos.io/faasos_v2/mask1.svg">
+                        <p>Using masks all the time.</p>
+                    </div>
+                    <div>
+                        <img src="https://assets.faasos.io/faasos_v2/staff2.svg">
+                        <p>Maintaining a log of kitchen staff's body temperature.</p>
+                    </div>
+                    <div>
+                        <img src="https://assets.faasos.io/faasos_v2/safety3.svg">
+                        <p>Using handwash frequently to clean hands.</p>
+                    </div>
+                    <div>
+                        <img src="https://assets.faasos.io/faasos_v2/kitchenSurface4.svg">
+                        <p>Sainitising all the kitchen surfaces, every 4 hours.</p>
+                    </div>
+                    <div>
+                        <img src="https://assets.faasos.io/faasos_v2/staff2.svg">
+                        <p>Delivering food in an enclosed sealed package to avoid contamination.</p>
+                    </div>                        
+                </div>
+            </div>
+        </div>
+        <div id="mainFooter"></div>
+       
+        <div id="blur"></div>
+        <div id="login_pop"></div>
+        <div id="signup_pop"></div>
+
+    </body>
+</html>
+
