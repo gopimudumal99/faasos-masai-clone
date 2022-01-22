@@ -4,12 +4,12 @@ const Product=require("../models/products.model")
 
 router.get("", async (req, res) => {
     try {
-        const products = await Product.find({category:""}).count().lean().exec();
-        console.log(products)
+        console.log(req.query);
+        const products = await Product.find().count().lean().exec();        
         return res.send({products})
     } catch (err) {
         res.send(err.message)
     }
 });
 
-module.exports=router;
+module.exports=router

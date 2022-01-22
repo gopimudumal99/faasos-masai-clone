@@ -1,4 +1,6 @@
-let login=()=>{
+const postdata = require("./postdata.js")
+
+let login = () => {
     return `<div class="top">
                 <div>
                     <div style="display: flex;" id="close_login">
@@ -17,53 +19,61 @@ let login=()=>{
             <select>
                 <option>+91</option>
             </select>
-            <input type="tel">
-            <p style="margin-top: 0;margin-left: 12%;font-size: 10px;color: red;display: none;">Phone should contain minimum 10 digits</p><br><br>
+            <input id="loginMobile_faasos" type="tel">
+            <br>
+            <p class="side_heading" style="margin-bottom: 0;margin-left: 12%;font-size: 15px;">Password</p>
+            <input id="logimPassword_faasos" type="password">
+            <br>
+            <p style="margin-top: 0;margin-left: 12%;font-size: 10px;color: red;display: none;" id="login_error_message" >Phone should contain minimum 10 digits</p><br><br>
             <button id="login_submit"><h3>CONTINUE</h3></button>
             <br><br><br><br><br><br><br>
             <p class="login_bottom">Don’t have an account? <a href="#">Sign up</a></p>
         </div>`
 }
 
-let openLogin=()=>{
+let openLogin = () => {
     document.getElementById("login_pop").style.display = "block";
     document.getElementById("blur").style.display = "block";
 }
 
-let closeLogin=()=>{
+let closeLogin = () => {
     document.getElementById("login_pop").style.display = "none";
     document.getElementById("blur").style.display = "none";
 }
 
-let isLoggedIn=(mobile = null)=>{
-    let user = JSON.parse(localStorage.getItem("user_fasoos")) || [];
-    let flag = null;
-    for (let i = 0; i < user.length; i++) {
-        if (user[i].phone.includes(mobile)) {
-            user[i].logedin = true;
-            flag = i
-        }
-        user[i].logedin = false;
-    }
-    if (flag != null) {
+let isLoggedIn = (mobile = null) => {
+    let user = JSON.parse(localStorage.getItem("user_fasoos"));
+
+    if (user) {
         document.getElementById("account_notLogin").style.display = "none";
         document.getElementById("account_LoggedIn").style.display = "block";
-        document.getElementById("name_when_logeedIn").innerText = user[flag].name;
-        document.getElementById("mobile_when_logeedIn").innerText = user[flag].phone;       
-    } else {
-        alert("enter correct credentials");
+        document.getElementById("name_when_logeedIn").innerText = user.name;
+        document.getElementById("mobile_when_logeedIn").innerText = user.phone;
     }
 }
 
-let login_mobile=()=>{
-    let number = document.querySelector("#login_details input").value;
+let login_mobile = () => {
+    let number = document.getElementById("loginMobile_faasoos").value;
+    let password = document.getElementById("loginPassword_faasoos").value;
+    let object = {
+        mobile: number,
+        password: password
+    };
 
     if (number.length > 9) {
         document.querySelectorAll("#login_details p")[1].style.display = "none";
         document.getElementById("login_submit").style.color = "#000000";
         document.querySelector("#login_details button").style.backgroundColor = "yellow";
         document.querySelector("#login_details button").addEventListener("click", () => {
+            let data = postdata("http://localhost:3333/login", object)
+            if (data.message) {
+                document.getElementById("login_error_message").innerText = data.message;
+                return;
+            }
             // isLoggedIn(document.querySelector("#login_details input").value);
+            data = JSON.parse(data);
+            localStorage.setItem("token", data.token);
+            localStorage.setItem("user_fasoos");
             document.getElementById("login_pop").style.display = "none";
             document.getElementById("blur").style.display = "none";
         })
@@ -73,4 +83,10 @@ let login_mobile=()=>{
     }
 }
 
-export {login, openLogin, closeLogin, login_mobile, isLoggedIn}
+export {
+    login,
+    openLogin,
+    closeLogin,
+    login_mobile,
+    isLoggedIn
+}

@@ -5,6 +5,7 @@ const {
     validationResult
 } = require('express-validator');
 const path = require("path");
+const cors =require("cors");
 
 const UserController = require("./controllers/user.controller");
 const {
@@ -13,8 +14,14 @@ const {
 } = require("./controllers/auth.controller");
 const productController = require("./controllers/product.controller");
 const checkoutController = require("./controllers/checkout.controller");
+const homeController=require("./controllers/home.controller");
 
+//cors origin
+app.use(cors({
+    origin: "*",
+}));
 app.use(express.json());
+
 app.use("/user", UserController);
 app.use("/products", productController);
 
@@ -23,15 +30,7 @@ app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use("/checkout", checkoutController);
-app.get("", async (req, res) => {
-    try {
-        return res.render("home");
-    } catch (err) {
-        return res.status(500).send({
-            message: err.message
-        })
-    }
-})
+app.use("",homeController);
 
 app.post("/signup", body("name").isLength({
     min: 1
