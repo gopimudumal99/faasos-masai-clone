@@ -71,9 +71,9 @@ let login_mobile = () => {
                 return;
             }
             // isLoggedIn(document.querySelector("#login_details input").value);
-            data = JSON.parse(data);
+            // data = JSON.parse(data);
             localStorage.setItem("token", data.token);
-            localStorage.setItem("user_fasoos");
+            localStorage.setItem("user_fasoos",JSON.stringify(data.user));
             document.getElementById("login_pop").style.display = "none";
             document.getElementById("blur").style.display = "none";
         })

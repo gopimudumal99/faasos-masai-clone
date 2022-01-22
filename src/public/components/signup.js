@@ -1,3 +1,5 @@
+const postdata=require("./postdata.js")
+
 let signup=()=>{
     return ` <div>
             <div class="top">
@@ -22,8 +24,9 @@ let signup=()=>{
                 <br><br>
                 <input placeholder="Email Address">
                 <p style="margin-top: 0;font-size: 10px;color: red;display: none;">Please enter a valid email</p>
-                <br>
-                <br>
+                <br><br>
+                <input placeholder="password (must be more than or equal to 8 charachers)" type="password">
+                <br><br>
                 <button type="submit">
                     <h3>CREATE ACCOUNT</h3>
                 </button>
@@ -45,7 +48,7 @@ let signupClose=()=>{
      document.getElementById("blur").style.display = "none";
 }
 
-let isLoggedIn = (mobile = null) => {
+let isLoggedIn = () => {
     let user = JSON.parse(localStorage.getItem("user_fasoos"))
     
     if (user) {
@@ -62,25 +65,25 @@ let isLoggedIn = (mobile = null) => {
 let storeUser=(e)=>{
     e.preventDefault();
     console.log("here");
-    let user = JSON.parse(localStorage.getItem("user_fasoos")) || [];
+
     let data = {
         name: document.querySelectorAll("#signup_details input")[1].value,
-        phone: document.querySelectorAll("#signup_details input")[0].value,
+        mobile: document.querySelectorAll("#signup_details input")[0].value,
         email: document.querySelectorAll("#signup_details input")[2].value,
-        address: null,
-        type: JSON.stringify(localStorage.getItem("type_address")),
-        logedin: true
+        password: document.querySelectorAll("#signup_details input")[3].value, 
+        address: [],        
+        roles:["customer"],
     }
 
-    for (let i = 0; i < user.length; i++) {
-        if (user[i].phone.includes(data.phone)) {
-            alert("enter a phone number that has not been used");
-            return;
-        }
-        user[i].logedin = false;
-    }
-    user.push(data);
+    let res = postdata("http://localhost:3333/signup",data);
+    
+    if(res.message)
+        return alert(res.message);
+
+    let user=res.user;
+    let token=res.token;
     localStorage.setItem("user_fasoos", JSON.stringify(user));
+    localStorage.setItem("token", token);
     isLoggedIn(document.querySelectorAll("#signup_details input")[1].value)
     document.getElementById("signup_pop").style.display = "none";
     document.getElementById("blur").style.display = "none";
