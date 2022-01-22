@@ -1,7 +1,8 @@
 var arr = []
 
 let showData = (data, start, location) => {
-  let obj = data.items;
+    let obj = data.items;
+    location.innerHTML=''
   obj.forEach((el) => {
     if (el.category.startsWith(start)) {
       // console.log(el)
@@ -349,10 +350,10 @@ function totalData(data) {
 }
 
 
-let checksend = document.getElementById("dom2check")
-checksend.addEventListener("click", function () {
-    localStorage.setItem("checkdata", JSON.stringify(data))
-})
+// let checksend = document.getElementById("dom2check")
+// checksend.addEventListener("click", function () {
+//     localStorage.setItem("checkdata", JSON.stringify(data))
+// })
 
 
 let linkgo = document.getElementsByClassName("li1")

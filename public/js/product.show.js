@@ -26,40 +26,60 @@ let start = [
 
 
 
-
-
-
 let url = `https://faasos-masai-clone.herokuapp.com/foodItems`;
 
-foodAPI(url);
-
-async function foodAPI(url) {
-  try {
-    let res = await fetch(url);
-    let data = await res.json();
-    // console.log(data);
-    for (var i = 0; i < start.length; i++) {
-      showData(data, start[i], location[i]);
-    }
-    cartFunction();
-  } catch (err) {
-    console.log("err:", err);
-  }
-};
-
-
-var a = document.getElementById("radio11");
-a.addEventListener("click", checkme);
-// var b = document.getElementById("radio12");
-// b.addEventListener("click", checkme1);
+var nonveg = document.getElementById("radio11");
+nonveg.addEventListener("click", checkme);
+var veg = document.getElementById("radio12");
+veg.addEventListener("click", checkme);
 
 function checkme() {
-  if (a.checked) {
-    console.log("here")
+  if (nonveg.checked) {
+    console.log("nonveg : here");
+    url = `https://faasos-masai-clone.herokuapp.com/foodItems?cat=nonveg`
+    foodAPI(url);
+  } else if (veg.checked) {
+    url = `https://faasos-masai-clone.herokuapp.com/foodItems?cat=veg`;
+    foodAPI(url);
+    console.log("veg : here")
   } else { 
+    console.log("no chek")
+    url = `https://faasos-masai-clone.herokuapp.com/foodItems`;
+    foodAPI(url);
   }
  }
 
+
+
+ 
+ async function foodAPI(url) {
+   try {
+     let res = await fetch(url);
+     let data = await res.json();
+     console.log(data);
+     for (var i = 0; i < start.length; i++) {
+       showData(data, start[i], location[i]);
+      }
+      cartFunction();
+    } catch (err) {
+      console.log("err:", err);
+    }
+  };
+  
+  foodAPI(url);
+
+
+
+//  res = await fetch(url,{
+//             method:"GET",
+//             mode:"cors",
+//             cache:"no-cache",
+//             credentials:"same-origin",
+//             headers:{
+//               "Content-Type": "application/json",
+//               "query":{"cat":"veg"}
+//             },
+//         });
 
 
 // function showData(data,start,location) {
