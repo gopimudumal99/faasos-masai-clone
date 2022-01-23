@@ -21,7 +21,9 @@ let func=()=>{
             }
         }
         else
-            temp="India";        
+            temp="India";
+            
+        document.querySelector("#navlocation p").textContent=temp;
     }
     else{
         document.getElementById("sidebarProfile").style.display="none";
@@ -36,5 +38,18 @@ let func=()=>{
 }
 
 func();
+
+const logout=()=>{
+    document.getElementById("sidebarProfile").style.display = "none";
+    document.getElementById("sidebarManageOrder").style.display = "none";
+    document.getElementById("sidebarManageAddress").style.display = "none";
+    document.getElementById("sidebarManagePayment").style.display = "none";
+    document.getElementById("sidebarPartyOrder").style.display = "none";
+    document.getElementById("sidebarLogout").style.display = "none";
+    localStorage.removeItem("user_fasoos");
+    localStorage.removeItem("token");
+}
+
+document.getElementById("sidebarLogout").addEventListener("click",logout);
 export default func
 
