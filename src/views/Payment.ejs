@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="/styles/payment.css" />
+    <title>Payment Gateway</title>    
+</head>
+
+<body>
+   <!-- topbar -->
+   <div class="topbar">
+       <div>
+           <a href="/home"><img src="https://ordarnow.com/wp-content/uploads/2021/07/Fassos-logo-300x150.png"
+                   alt="" /></a>
+       </div>
+       <div>
+           <a href="/checkout"><span>Go Back</span></a>
+           <a href="/products"><span><i class="fas fa-shopping-cart"></i></span></a>
+       </div>
+   </div>
+
+   <div class="container">
+       <div class="details">
+           <h1>Payment Gateway</h1>
+           <h3 id="bill"></h3>
+       </div>
+       <div class="pay-box">
+           <div>
+               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGNe9OUkbGe_6DSQ9dCdgfIGoI-87jdcmyLg&usqp=CAU"
+                   alt="" />
+           </div>
+           <div>
+               <div>
+                   <p>Card Number</p>
+                   <input type="number" placeholder="Enter Your Card Number" id="card" />
+               </div>
+               <div>
+                   <div>
+                       <p>Expiration Date</p>
+                       <input type="text" placeholder="Enter Expiry Date" id="date" />
+                   </div>
+                   <div>
+                       <p>CVV Code</p>
+                       <input type="number" placeholder="Enter Your CVV" id="cvv" />
+                   </div>
+               </div>
+               <div>
+                   <p>Account Owner</p>
+                   <input type="text" placeholder="Enter Your Full Name" id="owner" />
+               </div>
+           </div>
+           <div class="butn">
+               <button>Confirm Payment</button>
+           </div>
+       </div>
+   </div>
+
+   <div class="first"></div>
+
+   <div class="last"></div>
+</body>
+
+</html>
+<script src="/scripts/payment.js"></script>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/5e8eec8caf.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/styles/login&signup.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/addAddress.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/checkout.css" />
+    <script type="module" src="/scripts/checkout.js"></script>
+
+    <!-- footer -->
+    <link rel="stylesheet" href="/styles/footeer.css">
+    <script type="module" src="/scripts/footer.js"></script>
+
+    <!-- nav bar -->
+    <link rel="stylesheet" href="/styles/navbar.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script type="module" src="/scripts/navbarScript.js"></script>
+
+    <!-- order summary -->
+
+</head>
+
+<body>
+    <div id="navbar-container"></div>
+    <div id="checkout">
+        <div id="left_checkout">
+            <div id="account_notLogin">
+                <h2><span class="side_heading">1. </span> Account </h2>
+                <p>To place your order now, log in to your existing account or sign up.</p>
+                <button id="login">
+                    <p class="side_heading">have an account</p>
+                    <h3>LOG IN</h3>
+                </button>
+                <button id="signup">
+                    <p class="side_heading">New to Fasos?</p>
+                    <h3>SIGN UP</h3>
+                </button>
+            </div>
+            <div id="account_LoggedIn">
+                <h3><span><i class="fas fa-check" style="color: green;"></i> </span>Logged in</h3>
+                <h3><span id="name_when_logeedIn">name</span> | <span id="mobile_when_logeedIn">1234567890</span></h3>
+            </div>
+
+            <div id="delivery_addAddress">
+                <h3><span class="side_heading">2. </span>Delivery Address</h3>
+                <div style="display: flex;">
+                    <div>
+                        <h4>ADD NEW ADDRESS</h4>
+                        <button>ADD NEW</button>
+                    </div>
+                    <div id="delivery_gotAddress">
+                        <h3><span><i class="fas fa-check" style="color: green;"></i> </span>Delivery Address</h3>
+                        <h4 class="side_heading">type</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div id="payment">
+                <h3><span class="side_heading">3. </span>Payment</h3>
+                <div id="payment_choose">
+                    <button>PAY</button>
+                </div>
+                <div id="payment_options">
+                    <div>
+                        <h4><i class="fas fa-money-bill" style="color: green;"> </i>
+                            Credit/Debit Cards</h4>
+                        <h4 class="side_heading"><i class="fas fa-money-bill" style="color: green;"> </i> Wallet</h4>
+                        <h4 class="side_heading"><i class="fas fa-money-bill" style="color: green;"> </i> UPI</h4>
+                        <h4 class="side_heading"><i class="fas fa-money-bill" style="color: green;"> </i> COD</h4>
+                    </div>
+                    <div>
+                        <br>
+                        <a href="/Payment" style="background-color: white;">Pay via Card</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="order_summary">
+            <h3>Order Summary</h3>
+            <div>
+                <table>
+                    <tr>
+                        <td>veg</td>
+                        <td>name of roll</td>
+                        <td>+1-</td>
+                        <td>price</td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <input placeholder="Enter coupon" id="coupon">
+            </div>
+            <div id="total">
+                <h4 class="side_heading">Cart Amount</h4>
+                <table>
+                    <tr>
+                        <td>
+                            <h4>Grand Total</h4>
+                        </td>
+                        <td>
+                            <h4><span>₹</span><span id="GTotal"></span></h4>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div id="add_new_address"></div>
+    <div id="blur"></div>
+    <div id="login_pop"></div>
+    <div id="signup_pop"></div>
+    <div id="mainFooter"></div>
+</body>
+
+</html>
+<script src="/components/orderSummary.js"></script>

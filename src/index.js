@@ -1,25 +1,49 @@
-const express = require("express")
+const express = require("express");
 const app = express();
-const cors = require("cors");
+const {
+    body,
+    validationResult
+} = require('express-validator');
+const path = require("path");
+const cors =require("cors");
 
-//  https://faasos-masai-clone.herokuapp.com/
-const corsOptions = {
-  origin: ["*", "https://faasos-masai-clone.herokuapp.com", "http://localhost:3000"],
-  optionsSuccessStatus: 200, // For legacy browser support
-};
+const UserController = require("./controllers/user.controller");
+const {
+    signup,
+    login
+} = require("./controllers/auth.controller");
+const productController = require("./controllers/product.controller");
+const orderController=require("./controllers/order.controller");
 
-app.use(cors(corsOptions));
+const checkoutController = require("./controllers/checkout.controller");
+const homeController=require("./controllers/home.controller");
+const paymentController=require("./controllers/payment.controller");
 
+//cors origin
+app.use(cors({
+    origin: "*",
+}));
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
+app.use("/user", UserController);
+app.use("/products", productController);
+app.use("/order",orderController);
 
-app.set("view engine", "ejs"); // root directory for views views/
-app.use(express.static("public"));
+app.set('views', path.join(__dirname, 'views'));
+app.set("view engine", "ejs");
+app.use(express.static(path.join(__dirname, 'public')));
 
-// foodItems api 
-app.use("/foodItems",require("./controllers/foodItems.controller"))
+app.use("/checkout", checkoutController);
+app.use("",homeController);
+app.use("/payment",paymentController);
 
-app.use("/collections", require("./controllers/foodItem.show"));
-
+app.post("/signup", body("name").isLength({
+    min: 1
+}), body("email").isEmail(), body("password").isLength({
+    min: 8
+}), signup);
+app.post("/login", body("email").isEmail(), body("password").isLength({
+    min: 8
+}), login);
 module.exports = app;
+

@@ -1,0 +1,248 @@
+
+* {
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  padding: 0;
+  font-family: "Mulish", sans-serif;
+}
+
+:root {
+  --bodyBack: white;
+  --yellow: rgb(255, 211, 68);
+  --primaryColorLight: #6a55cc;
+  --primaryColorRegular: #57409a;
+  --primaryColorDark: #190b46;
+  --blackText: #333333;
+  --grayText: #7e7e7e;
+  --whiteLight: #fff;
+  --whiteRegular: #f5f5f5;
+  font-size: 35.5%;
+}
+
+html {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Mulish", sans-serif;
+  /* background-color: var(--whiteRegular); */
+  font-size: 2rem;
+  color: var(--blackText);
+}
+#side {
+  /* border: 1px solid red; */
+  padding-right: 20%;
+}
+
+nav {
+  background-color: var(--whiteLight);
+  width: 100%;
+  box-shadow: rgb(0 0 0 / 4%) 0px 4px 8px 0px;
+  background: transparent;
+  color: #333333;
+  height: fit-content;
+}
+
+#navcontainer {
+  max-width: 80%;
+  margin: 0px auto;
+  padding: 1.6rem 0.5rem;
+  display: flex;
+  flex-direction: row;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+
+#navleft > a > img {
+  width: 68px;
+  height: 40px;
+}
+
+#navleft,
+#navright {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#navleft > *,
+#navright > * {
+  margin-right: 20px;
+}
+
+#navlocation > p:nth-child(1) {
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+nav #userName,
+nav .hamburger {
+  color: var(--primaryColorRegular);
+  cursor: pointer;
+}
+
+#fixheader {
+  border: solid black;
+  background-color: black;
+  background-image: url(https://assets.faasos.io/faasos_v2/aboutUsBanner.png);
+  background-size: cover;
+  height: 440px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* .auto {
+  text-rendering: optimizelegibility;
+  letter-spacing: 0.02em;
+  box-sizing: border-box;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: Muli, sans-serif;
+  width: 100%;
+  white-space: normal;
+  font-size: calc(20px + 36 * ((100vw - 300px) / 1100));
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  text-align: center;
+  /* margin-bottom: 1.6rem; */
+/* } */
+
+#auto2 {
+  text-size-adjust: none;
+  text-rendering: optimizelegibility;
+  /* letter-spacing: 0.07em; */
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: Muli, sans-serif;
+  width: 100%;
+  white-space: normal;
+  font-weight: 400;
+  font-size: calc(30px + 4 * ((100vw - 300px) / 1100));
+  color: rgb(255, 255, 255);
+  text-align: center;
+  /* margin-bottom: -20px; */
+}
+.yellow {
+  color: #333333;
+}
+
+/* --------------------------------------- Sidebar CSS  ----------------------------------- */
+
+#side {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  height: 100vh;
+  position: fixed;
+  z-index: 111;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+#sideMain {
+  height: 100%;
+  position: relative;
+  margin-right: -400px;
+  transition: transform 0.5s linear;
+}
+
+.activeSide {
+  transform: translateX(-400px);
+}
+
+#sideList {
+  max-width: 300px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background-color: var(--whiteLight);
+}
+
+#sideList > span {
+  position: absolute;
+  top: 1.5rem;
+  right: 2.5rem;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+#sideNavList {
+  display: flex;
+  flex-direction: column;
+  padding-top: 6rem;
+}
+
+#sideNavList > li {
+  width: 100%;
+  cursor: pointer;
+}
+
+#sideNavList > li > a {
+  display: flex;
+  align-items: center;
+  padding: 2.1rem 4rem;
+  width: 100%;
+}
+
+#sideNavList > li > a > span {
+  flex: 1 1 12.5%;
+  max-width: 12.5%;
+}
+
+#sideNavList > li > a > span > img {
+  width: 30px;
+  height: 30px;
+}
+
+#sideNavList > li > a > p {
+  flex: 1 1 75%;
+  font-size: 2rem;
+  font-weight: 500;
+  color: rgb(126, 126, 126);
+}
+
+nav #userName,
+nav .hamburger {
+  color: rgb(121, 105, 174);
+  cursor: pointer;
+}
+/* ----------------------------------------------------------slider------------------------------------------------------------------------------- */
+/* #s {
+  border: 1px solid red;
+  width: 200px;
+  height: 50%;
+} */
+
+.cell {
+  width: 33%;
+  height: 200px;
+  margin: 0 10px;
+  overflow: hidden;
+
+  box-shadow: #333333;
+}
+.cell img {
+  width: 100%;
+  height: 200px;
+  object-fitter: cover;
+}
+.flickity-prev-next-button {
+  border: 1px solid red;
+  width: 30px;
+
+  width: 30px;
+  height: 30px;
+}
