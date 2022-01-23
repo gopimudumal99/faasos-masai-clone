@@ -1,12 +1,13 @@
-const app =require("./index");
-const connect=require("./config/db");
+const app = require("./index");
+const connect = require("./config/db");
 
-app.listen(3000,async()=>{
-    try{
-        await connect();
-        console.log("listning on port 3000");
-    }
-    catch(err){
-        console.log(err.message);
-    }
-})
+const port = process.env.PORT || 3000
+
+app.listen(port, async () => {
+  try {
+    await connect();
+    console.log(`listening on port ${port}`);
+  } catch (e) {
+    console.log(e.message);
+  }
+});
