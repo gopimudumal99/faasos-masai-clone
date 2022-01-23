@@ -42,7 +42,8 @@ app.post("/signup", body("name").isLength({
 }), body("email").isEmail(), body("password").isLength({
     min: 8
 }), signup);
-app.post("login", body("email").isEmail(), body("password").isLength({
+app.post("/login", body("email").isEmail(), body("password").isLength({
     min: 8
 }), login);
 module.exports = app;
+

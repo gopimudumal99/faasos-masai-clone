@@ -1,5 +1,5 @@
-const postdata = require("./postdata.js")
-
+import postdata from "./postdata.js"
+import func from "../scripts/navbarScript.js"
 let login = () => {
     return `<div class="top">
                 <div>
@@ -48,7 +48,7 @@ let isLoggedIn = (mobile = null) => {
         document.getElementById("account_notLogin").style.display = "none";
         document.getElementById("account_LoggedIn").style.display = "block";
         document.getElementById("name_when_logeedIn").innerText = user.name;
-        document.getElementById("mobile_when_logeedIn").innerText = user.phone;
+        document.getElementById("mobile_when_logeedIn").innerText = user.mobile;
     }
 }
 
@@ -77,6 +77,7 @@ let login_mobile = () => {
             document.getElementById("login_pop").style.display = "none";
             document.getElementById("blur").style.display = "none";
             window.loaction.reload(true);
+            func();
         })
 
     } else {

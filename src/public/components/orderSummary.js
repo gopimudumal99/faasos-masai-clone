@@ -56,7 +56,7 @@ let Gtotal = () => {
 let orderSummary = () => {
     document.querySelector("#order_summary table").innerHTML = "";
     let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
-    let quantity = JSON > parse(localStorage.getItem("quantity")) || [];
+    let quantity = JSON.parse(localStorage.getItem("quantity")) || [];
 
     cart.map((el, index) => {
         let tr = document.createElement("tr");

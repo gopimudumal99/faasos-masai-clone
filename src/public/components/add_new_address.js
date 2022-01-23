@@ -123,7 +123,7 @@ let addAddress=()=>{
 }
 
 let check_address_present=()=>{
-    let user=JSON.parse(loacalStorage.getItem("user_fasoos"))
+    let user=JSON.parse(localStorage.getItem("user_fasoos"))
     let address = user.address|| null;
 
     if (address == null) {
@@ -140,7 +140,7 @@ let check_address_present=()=>{
     }
 }
 
-let save_address=(e)=>{
+let save_address=async (e)=>{
     e.preventDefault();
     let form = document.querySelector("#add_new_address form");
     let address_needed = {
@@ -148,7 +148,8 @@ let save_address=(e)=>{
         landmark: form.landmark.value
     }
 
-    patchdata("http://localhost:3333/order",{address:address_needed})
+    let user=await patchdata("http://localhost:3333/order",{address:address_needed});
+    localStorage.setItem("user_fasoos",JSON.stringify(user));
     check_address_present();
     close_pop();
 }

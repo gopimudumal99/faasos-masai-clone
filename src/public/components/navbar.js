@@ -22,25 +22,25 @@ function navbar() {
         <div id="sideList">
             <span onclick="closeSide()"><i class="fas fa-times"></i></span>
             <ul id="sideNavList">
-                <li>
+                <li id="sidebarProfile">
                     <a href="#">
                         <span><img src="../images/sidebarprofile.png" alt="Profile"></span>
                         <p>Profile</p>
                     </a>
                 </li>
-                <li>
+                <li id="sidebarManageOrder">
                     <a href="#">
                         <span> <img src="../images/Sidebarmanageorder.png" alt="Order"> </span>
                         <p>Manage Orders</p>
                     </a>
                 </li>
-                <li>
+                <li id="sidebarManageAddress">
                     <a href="#">
                         <span> <img src="../images/sidebaraddress.png" alt="Manage Addresses"></span>
                         <p>Manage Addresses</p>
                     </a>
                 </li>
-                <li>
+                <li id="sidebarManagePayment">
                     <a href="#">
                         <span> <img src="../images/sidebarpayment.png"
                         alt="Manage Payments"></span>
@@ -62,14 +62,14 @@ function navbar() {
                         <p>About Us</p>
                     </a>
                 </li>
-                <li>
+                <li id="sidebarPartyOrder">
                     <a href="#">
                         <span> <img src="../images/sidebarparty.png"
                         alt="Party Orders"></span>
                         <p>Party Orders</p>
                     </a>
                 </li>
-                <li>
+                <li id="sidebarLogout">
                     <a href="#">
                         <span><img src="../images/sidebarlogout.png"
                         alt="Logout"> </span>

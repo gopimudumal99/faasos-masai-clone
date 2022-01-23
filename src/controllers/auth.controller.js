@@ -9,16 +9,18 @@ const newToken=(user)=>{
 
 const signup=async (req,res)=>{
     try{
-        let user=await User.findOne({"email":req.body.email}).lean().exec();
+        console.log("posting")
+        let user=await User.findOne({"mobile":req.body.mobile}).lean().exec();
         if(user){
-            return res.status(400).send({message:"email already exists"});
+            return res.status(400).send({message:"phone number already exists"});
         }
+        console.log(req.body);
         user=await User.create(req.body);
         const token=newToken(user);
         return res.status(201).send({user:user, token:token});
     }
     catch(err){
-        return res.status(500).send(err.message);
+        return res.status(500).send({message:err.message});
     }
 }
 

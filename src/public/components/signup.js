@@ -1,4 +1,4 @@
-const postdata=require("./postdata.js")
+import  postdata from "./postdata.js"
 
 let signup=()=>{
     return ` <div>
@@ -51,18 +51,18 @@ let signupClose=()=>{
 let isLoggedIn = () => {
     let user = JSON.parse(localStorage.getItem("user_fasoos"))
     
-    if (user) {
+    if (user!=undefined) {
         document.getElementById("account_notLogin").style.display = "none";
         document.getElementById("account_LoggedIn").style.display = "block";
-        document.getElementById("name_when_logeedIn").innerText = user[flag].name;
-        document.getElementById("mobile_when_logeedIn").innerText = user[flag].phone;
+        document.getElementById("name_when_logeedIn").innerText = user.name;
+        document.getElementById("mobile_when_logeedIn").innerText = user.phone;
     } else {
         alert("user signed up");
     }
 }
 
 
-let storeUser=(e)=>{
+let storeUser=async (e)=>{
     e.preventDefault();
     console.log("here");
 
@@ -70,16 +70,15 @@ let storeUser=(e)=>{
         name: document.querySelectorAll("#signup_details input")[1].value,
         mobile: document.querySelectorAll("#signup_details input")[0].value,
         email: document.querySelectorAll("#signup_details input")[2].value,
-        password: document.querySelectorAll("#signup_details input")[3].value, 
-        address: [],        
+        password: document.querySelectorAll("#signup_details input")[3].value,  
         roles:["customer"],
     }
 
-    let res = postdata("http://localhost:3333/signup",data);
-    
-    if(res.message)
+    console.log(data);
+    let res = await postdata("http://localhost:3000/signup",data)
+    if(res.message){
         return alert(res.message);
-
+    }
     let user=res.user;
     let token=res.token;
     localStorage.setItem("user_fasoos", JSON.stringify(user));
