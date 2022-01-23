@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/navbar.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+</head>
+<body>
+    <nav>
+        <div id="navcontainer">
+            <div id="navleft">
+                <a href="/collections">
+                    <img src="https://assets.faasos.io/faasos_v2/faasosLogoPurple.svg" alt="faasos logo" />
+                </a>
+                <div id="navlocation">
+                    <p>Ranchi</p>
+                    <p>Ranchi Jharkhand</p>
+                </div>
+            </div>
+            <div id="navright">
+                <p id="userName">Hi Punam Mehra</p>
+                <p class="hamburger" onclick="openSide()">
+                    <i class="fas fa-bars"></i>
+                </p>
+            </div>
+        </div>
+    <section id="side">
+        <div id="sideMain">
+            <div id="sideList">
+                <span onclick="closeSide()"><i class="fas fa-times"></i></span>
+                <ul id="sideNavList">
+                    <li>
+                        <a href="#">
+                            <span><img src="/img/Sidebarprofile.png" alt="Profile"></span>
+                            <p>Profile</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span><img src="/img/Sidebarmanageorder.png" alt="Order"></span>
+                            <p>Manage Orders</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span><img src="/img/Sidebaraddress.png" alt="Manage Addresses"></span>
+                            <p>Manage Addresses</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span><img src="/img/Sidebarpayment.png" alt="Manage Payments"></span>
+                            <p>Manage Payments</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span><img src="/img/Sidebarhelp.png" alt="Help & Support"></span>
+                            <p>Help & Support</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span><img src="/img/Sidebarabout.png" alt="About Us"></span>
+                            <p>About Us</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span><img src="/img/Sidebarparty.png" alt="Party Orders"></span>
+                            <p>Party Orders</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span><img src="/img/Sidebarlogout.png" alt="Logout"></span>
+                            <p>Logout</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</nav> 
+<div id="navbar-container"></div>
+<!-- ------------------------------------slider------------------------------------------ -->
+  <div class="main-carousel">
+ <div class="cell"><img src="https://product-assets.faasos.io/production/product/image_1620280991048_Faasos%20Combo_3%20May_Classic%20Wraps%20%281%29.jpg" alt=""> </div>
+    <div class="cell"><img src="https://product-assets.faasos.io/production/product/image_1629953295371_Munch-%20Creative-approved..jpg" alt=""></div>
+    <div class="cell"><img src="https://product-assets.faasos.io/production/product/image_1629953295371_Munch-%20Creative-approved..jpg" alt=""></div>
+    <div class="cell"><img src="https://product-assets.faasos.io/production/product/image_1614756805684_faasos_combo_meal_Serves3.jpg" alt=""></div>
+    <div class="cell"><img src="https://product-assets.faasos.io/production/product/image_1620280380694_Banner%201%20%281%29.jpg" alt=""></div>
+    <div class="cell"><img src="https://product-assets.faasos.io/production/product/image_1620280934986_Faasos%20Combo_3%20May_Signature%20Wraps%20%281%29%20%281%29.jpg" alt=""></div>
+  </div>
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<script>
+    $('.main-carousel').flickity({
+  // options
+  cellAlign: 'left',
+  wrapAround:true,
+//   freeScroll: true
+});
+</script>
+</body>
+</html>
+<script type="module">
+   import navbar from './component/navbar.js'
+   import sidebar from './component/sidebar.js'
+   let container = document.getElementById('navbar-container')
+   container.innerHTML=navbar()
+    </script>
+    <!-- ----------------------sidebar functionality------------------------------------ -->
+    <script>
+        function closeSide() {
+  let side = document.getElementById('side');
+  side.style.display = 'none';
+  let sideMain = document.getElementById('sideMain');
+   sideMain.classList.toggle('activeSide');
+ }
+ function openSide() {
+   let sidebar = document.getElementById('side');
+  side.style.display = 'block';
+   setTimeout(function () {
+     let sideMain = document.getElementById('sideMain');
+   sideMain.classList.toggle('activeSide');
+   }, 200);
+ }
+    </script>

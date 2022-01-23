@@ -1,9 +1,10 @@
 
 
 #top {
+  margin-top: 5px;
   margin-left: 8%;
   font-family: Muli, sans-serif;
-  font-size: 13px;
+  font-size: 16px;
 }
 
 #content {
@@ -41,12 +42,12 @@
   margin-top: 4%;
 }
 
-#f1 {
+#f11 {
   font-size: 20px;
   font-weight: bolder;
 }
 
-#f2 {
+#f21 {
   display: flex;
 }
 

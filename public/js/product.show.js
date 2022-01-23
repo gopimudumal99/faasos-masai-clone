@@ -179,3 +179,22 @@ function checkme() {
 
 
 
+
+
+    // function checkOut() {
+    //   var arrInput = [];
+    //   let dom = document.getElementsByClassName("cartdiv");
+    //   let input = document.getElementsByClassName("input01");
+    //   let total = document.getElementById("rupee").innerText;
+    //   for (var i = 0; i < input.length; i++) {
+    //     // console.log(dom[i])
+    //     console.log(input[i].value);
+    //     arrInput.push(input[i].value);
+    //   }
+    //   console.log(arrInput);
+    //   localStorage.setItem("quantity", JSON.stringify(arrInput));
+    //   localStorage.setItem("Total", JSON.stringify(total));
+    // }
+
+
+    

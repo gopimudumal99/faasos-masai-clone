@@ -220,10 +220,11 @@ h3{
 
 #boxleft{
     /* border: 1px solid red; */
-    width:700px;
+     width:700px;
     margin: auto;
-    margin-left:380px;
+    margin-left:400px;
     margin-right:480PX;
+    margin-top: -500px;
 }
 
 /* custom btn */
@@ -269,11 +270,13 @@ h3{
 }
 #boxright{
     /* border: 1px solid red; */
-    position: fixed;
+    position: sticky;
+    top: 8.6rem;
+    height: fit-content;
     width: 402px;
     margin-right: 67px;
     margin-left: -260px;
-    /* margin-top: -270px; */
+    margin-top: -500px;
 }
 #style{
     font-size:25px;
@@ -348,9 +351,9 @@ h3{
 }
 #priceimg01{
     width: 15px;
-    margin-top: 19px;
+    margin-top: 0px;
     /* margin-right: 39px; */
-    margin-left: -34px;
+    margin-left: -20px;
 
 }
 #dom01{
@@ -423,14 +426,15 @@ h3{
 
 
 #filter-box {
-    position: fixed;
+    position: sticky;
+    top: 0px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: -100px;
     margin-left: 110px;
     width: 90vw;
     border-bottom: 1px solid #888888;
+    margin-top:25px;
 }
 
 
@@ -519,26 +523,16 @@ label {
 
 
 .food-filter {
-    margin: 100px 250px;
+    /* margin: 100px 250px; */
+    position: sticky;
+    width: 250px;
+    top: 8.6rem;
+    height: fit-content;
+    margin-left:100px; 
+    margin-top:20px; 
     text-align: left;
 
 }
-
-/* .food-filter ul { */
-/* list-style: none;
-            margin: -145px;
-            margin-top: -10px;
-            position: fixed;
-            left: 10;
-            width: 200px; */
-/* border: 1px solid red; */
-/* background-color: white; */
-/* box-shadow: 0 0px 5px 5px #888888; */
-/* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-            border-radius: 15px; */
-/* margin-top:0px; */
-/* padding:30px; */
-/* } */
 
 .food-filter ul li {
     display: flex;
@@ -560,17 +554,13 @@ label {
 
 .food-filter ul {
     list-style: none;
-    margin: -145px;
     margin-top: -10px;
-    position: fixed;
-    left: 10;
-    width: 250px;
+    /* position: fixed; */
+
     /* border: 1px solid red; */
     background-color: white;
-    /* box-shadow: 0 0px 5px 5px #888888; */
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     border-radius: 15px;
-    /* margin-top:0px; */
     padding: 10px;
 }
 

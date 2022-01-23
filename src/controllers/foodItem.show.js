@@ -30,7 +30,6 @@ router.get("", async (req, res)=>{
 router.get("/:id", async (req, res) => { 
     try {
         const product = await Product.findById(req.params.id).lean().exec()
-        console.log(product)
         res.render("singleFood", {product:product})
     } catch (error) {
         res.send(error)

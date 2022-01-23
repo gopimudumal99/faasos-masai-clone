@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- google fonts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,10 +27,17 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/main.css">
-    <!-- <script type="module" src="./scripts/collection.js"></script> -->
-</head>
+        <!-- Navbar -->
+        <!-- <script type="module" src="/js/navbarScript.js"></script> -->
+        <link rel="stylesheet" href="/css/navbar.css">
 
+        <!-- carsol -->
+        <!-- <script type="module"  src="/js/carousrel.js"></script> -->
+
+</head>
 <body>
+    <!-- <div id="navbar-container"></div> -->
+    <%-include("./header.ejs")  %> 
     <div id="filter-box">
         <div id="text">
             <h4>Order Food Online in Green Park FC</h4>
@@ -66,7 +80,7 @@
         </div>
     </div>
 
-    <div class="food-filter">
+    <div id="food-filter" class="food-filter">
         <ul>
             <li class="li1"><a href="#Fab Wraps starting at 99 each" class="alink">Fab Wraps starting at 99 each</a></li>
             <li class="li1"><a href="#Faasos Chefs Specials" class="alink">Faasos Chefs Specials</a> </li>
@@ -182,22 +196,8 @@
 
 </html>
 <script type="module" src="/js/product.show.js"></script>
+
 <script>
-
-    // var a = document.getElementById("radio11")
-    // a.addEventListener("click", checkme)
-    // var b = document.getElementById("radio12")
-    // b.addEventListener("click", checkme1)
-    
-
-    // function checkme() {
-    //     var checkedCount = 0;
-    //         if (a.checked) {
-    //             checkedCount++;
-
-    //     }
-    //      console.log(checkedCount)
-    // }
     function checkOut(){
         var arrInput =[]
         let dom = document.getElementsByClassName("cartdiv")
@@ -213,3 +213,5 @@
          localStorage.setItem("Total", JSON.stringify(total))
     }
 </script> 
+
+
