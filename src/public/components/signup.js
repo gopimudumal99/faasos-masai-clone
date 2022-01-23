@@ -87,6 +87,7 @@ let storeUser=(e)=>{
     isLoggedIn(document.querySelectorAll("#signup_details input")[1].value)
     document.getElementById("signup_pop").style.display = "none";
     document.getElementById("blur").style.display = "none";
+    window.location.reload(true);
 }
 
 let checkEmail=()=>{

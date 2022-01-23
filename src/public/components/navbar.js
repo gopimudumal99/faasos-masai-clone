@@ -2,7 +2,7 @@ function navbar() {
     return`<nav>
     <div id="navcontainer">
         <div id="navleft">
-            <a href="/collections">
+            <a href="/home">
                 <img src="https://assets.faasos.io/faasos_v2/faasosLogoPurple.svg" alt="faasos logo" />
             </a>
             <div id="navlocation">

@@ -76,6 +76,7 @@ let login_mobile = () => {
             localStorage.setItem("user_fasoos",JSON.stringify(data.user));
             document.getElementById("login_pop").style.display = "none";
             document.getElementById("blur").style.display = "none";
+            window.loaction.reload(true);
         })
 
     } else {
