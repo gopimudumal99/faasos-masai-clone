@@ -13,8 +13,11 @@ const {
     login
 } = require("./controllers/auth.controller");
 const productController = require("./controllers/product.controller");
+const orderController=require("./controllers/order.controller");
+
 const checkoutController = require("./controllers/checkout.controller");
 const homeController=require("./controllers/home.controller");
+const paymentController=require("./controllers/payment.controller");
 
 //cors origin
 app.use(cors({
@@ -24,6 +27,7 @@ app.use(express.json());
 
 app.use("/user", UserController);
 app.use("/products", productController);
+app.use("/order",orderController);
 
 app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "ejs");
@@ -31,6 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use("/checkout", checkoutController);
 app.use("",homeController);
+app.use("/payment",paymentController);
 
 app.post("/signup", body("name").isLength({
     min: 1

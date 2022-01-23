@@ -6,7 +6,7 @@ let userSchema=mongoose.Schema({
     mobile:{type:String, required:true, unique:true},
     email:{type:String, required:true, unique:true},
     password:{type:String, required:true},
-    address:[{type:String, required:false}],
+    address:{type:Object, required:false},
     roles:[{type:String, required:true}]
 },
 {

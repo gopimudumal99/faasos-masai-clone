@@ -3,3 +3,5 @@ let container = document.getElementById('navbar-container')
 container.innerHTML = navbar();
 document.querySelectorAll("#navright p")[1].addEventListener("click", openSide);
 document.querySelector("#sideList span").addEventListener("click", closeSide);
+
+let user=JSON.parse(localStorage.getItem())

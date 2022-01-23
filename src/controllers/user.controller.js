@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/user.model");
+const authenticate = require("../middlewares/authenticate");
 
 router.get("",async(req,res)=>{
     try{
@@ -25,10 +26,10 @@ router.post("", async (req, res) => {
     }
 });
 
-router.patch("/:id", async (req, res) => {
+router.patch("", authenticate, async (req, res) => {
     try {
         
-        const user = await User.findByIdAndUpdate(req.params.id,req.body,{new:true}).lean().exec();
+        const user = await User.findByIdAndUpdate(req.user._id,req.body,{new:true}).lean().exec();
         return res.status(201).send(user);
     } catch (err) {
         return res.status(500).send(err.message);
@@ -44,4 +45,5 @@ router.delete("/:id", async (req, res) => {
         return res.status(500).send(err.message);
     }
 });
+
 module.exports = router;

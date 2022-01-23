@@ -1,3 +1,5 @@
+import patchdata from "./patchdata.js";
+
 let addNewAddress=()=>{
     return `<h2 id="back"><i class="fas fa-chevron-left"></i></h2>
         <div id="googleMap">
@@ -121,7 +123,8 @@ let addAddress=()=>{
 }
 
 let check_address_present=()=>{
-    let address = JSON.parse(localStorage.getItem("address")) || null;
+    let user=JSON.parse(loacalStorage.getItem("user_fasoos"))
+    let address = user.address|| null;
 
     if (address == null) {
         document.getElementById("delivery_gotAddress").style.display = "none";
@@ -145,7 +148,7 @@ let save_address=(e)=>{
         landmark: form.landmark.value
     }
 
-    localStorage.setItem("address", JSON.stringify(address_needed));
+    patchdata("http://localhost:3333/order",{address:address_needed})
     check_address_present();
     close_pop();
 }
