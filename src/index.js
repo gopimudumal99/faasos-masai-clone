@@ -12,7 +12,6 @@ const {
     signup,
     login
 } = require("./controllers/auth.controller");
-const productController = require("./controllers/product.controller");
 const orderController=require("./controllers/order.controller");
 
 const checkoutController = require("./controllers/checkout.controller");
@@ -25,9 +24,12 @@ app.use(cors({
 }));
 app.use(express.json());
 
+app.use("/collections", require("./controllers/foodItem.show"));
 app.use("/user", UserController);
-app.use("/products", productController);
 app.use("/order",orderController);
+app.use("/foodItems",require("./controllers/foodItems.controller"))
+
+
 
 app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "ejs");

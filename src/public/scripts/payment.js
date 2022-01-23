@@ -14,7 +14,7 @@ button.addEventListener("click", function () {
         alert("Enter Expiration Date");
     } else {
         alert("Payment Successfull");
-        window.location.href = "Salespage.html";
+        window.location.href = "/collections";
         alert("Thanks for Purchasing");
     }
 });
