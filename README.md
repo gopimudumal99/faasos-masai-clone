@@ -48,6 +48,15 @@ Faasos is an Indian "food on demand" service app
 **link updated soon**
 
 
+## Installation
+
+To install the dependencies, run the following command
+
+```bash
+  npm run server
+```
+
+
 ## Running code
 
 To run tests, run the following command
