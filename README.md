@@ -53,7 +53,7 @@ Faasos is an Indian "food on demand" service app
 To install the dependencies, run the following command
 
 ```bash
-  npm run server
+  npm i
 ```
 
 
