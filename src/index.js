@@ -10,12 +10,37 @@ const path = require("path");
 
 //  https://faasos-masai-clone.herokuapp.com/
 
+const corsOptions = {
+  origin: [
+    "*",
+    "https://faasos-masai-clone.herokuapp.com",
+    "http://localhost:3003",
+  ],
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "POST"],
+  optionsSuccessStatus: 200, // For legacy browser support
+};
 
+app.use(cors(corsOptions));
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PATCH, DELETE, OPTIONS, PUT"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "X-Requested-With-content-type"
+  );
+  res.setHeader("Access-Control-Allow-Credentials", true);
+
+  next();
+});
 const {
     body,
     validationResult
 } = require('express-validator');
-
 
 
 const UserController = require("./controllers/user.controller");
@@ -38,43 +63,12 @@ app.use("/user", UserController);
 app.use("/order",orderController);
 
 
-
-
-
-
-
 app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-const corsOptions = {
-  origin: [
-    "*",
-    "https://faasos-masai-clone.herokuapp.com",
-    "http://localhost:3003",
-  ],
-  credentials: true,
-  methods: ["GET", "POST", "PUT"],
-  optionsSuccessStatus: 200, // For legacy browser support
-};
 
-app.use(cors(corsOptions));
-
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PATCH, DELETE, OPTIONS, PUT"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "X-Requested-With-content-type"
-  );
-  res.setHeader("Access-Control-Allow-Credentials", true);
-
-  next();
-});
 
 
 
