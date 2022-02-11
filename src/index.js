@@ -1,12 +1,12 @@
 const express = require("express");
 const app = express();
+const bodyParser = require("body-parser");
 const cors =require("cors");
 const path = require("path");
 
 // app.use(cors({
 //     origin: "*",
 // }));
-
 
 //  https://faasos-masai-clone.herokuapp.com/
 
@@ -16,13 +16,13 @@ const corsOptions = {
     "https://faasos-masai-clone.herokuapp.com",
     "http://localhost:3003",
   ],
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "POST"],
+  // credentials: true,
+  // methods: ["GET", "POST", "PUT", "POST"],
   optionsSuccessStatus: 200, // For legacy browser support
 };
-
 app.use(cors(corsOptions));
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -58,7 +58,7 @@ const paymentController=require("./controllers/payment.controller");
 //cors origin
 
 
-app.use(express.json());
+// app.use(express.json());
 app.use("/user", UserController);
 app.use("/order",orderController);
 
@@ -66,14 +66,6 @@ app.use("/order",orderController);
 app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, 'public')));
-
-
-
-
-
-
-
-
 
 
 app.use("/collections", require("./controllers/foodItem.show"));

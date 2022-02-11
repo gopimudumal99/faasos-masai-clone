@@ -1,7 +1,7 @@
 {
   "name": "authentication",
   "version": "1.0.0",
-  "proxy":"https://sleepy-sea-28957.herokuapp.com/collections",
+  "proxy":"https://faasos-masai-clone.herokuapp.com",
   "description": "",
   "main": "index.js",
   "scripts": {
