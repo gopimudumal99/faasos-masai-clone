@@ -10,6 +10,18 @@ router.get("", async (req, res) => {
     res.render("collections", {products:products});
 });
 
+
+
+router.get("/:id", async (req, res) => { 
+    try {
+        // console.log(req.params.id);
+        const product = await Product.findById(req.params.id).lean().exec();
+        res.render("singleFood", { product: product })
+    } catch (error) {
+        res.send(error)
+    }
+})
+
 router.get("", async (req, res)=>{ 
     try {
     let queries = req.query;
@@ -25,18 +37,5 @@ router.get("", async (req, res)=>{
         
     }
 })
-
-
-router.get("/:id", async (req, res) => { 
-    try {
-        
-        const product = await Product.findById(req.params.id).lean().exec();
-       
-        res.render("singleFood", {product:product})
-    } catch (error) {
-        res.send(error)
-    }
-})
-
 
 module.exports = router;

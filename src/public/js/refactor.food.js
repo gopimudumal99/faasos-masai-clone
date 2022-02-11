@@ -90,8 +90,8 @@ let showData = (data, start, location) => {
 
       div.append(imgdiv, namediv, p_div, buttom);
        namediv,imgdiv.addEventListener("click", () => {
-          console.log(el);
-          window.location.href = `/collecctions/${el._id}`;
+        //   console.log(el);
+          window.location.href = `/collections/${el._id}`;
           // newPage(el);
         });
 
