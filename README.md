@@ -45,7 +45,7 @@ Faasos is an Indian "food on demand" service app
 
 ## Demo
 
-**link updated soon**
+https://faasos-masai-clone.herokuapp.com/
 
 
 ## Installation
